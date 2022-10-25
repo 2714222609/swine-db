@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.hzau.cocs.swinedb.mapper.SwineMapper">
+    <select id="getSwineList" resultType="Swine">
+        select * from swine.swine;
+    </select>
+
+    <select id="getSwineById" resultType="Swine" parameterType="int">
+        select * from swine.swine where id = #{id};
+    </select>
+
+    <insert id="addSwine" parameterType="Swine">
+        insert into swine.swine(id,name,age) values(#{id},#{name},#{age});
+    </insert>
+
+    <update id="updateSwine" parameterType="Swine">
+        update swine.swine set name = #{name},age = #{age} where id = #{id};
+    </update>
+
+    <delete id="deleteSwine" parameterType="int">
+        delete from swine.swine where id = #{id};
+    </delete>
+</mapper>
