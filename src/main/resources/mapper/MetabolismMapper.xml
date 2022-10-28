@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.hzau.cocs.swinedb.mapper.MetabolismMapper">
+    <resultMap id="metabolismMap" type="com.edu.hzau.cocs.swinedb.pojo.Metabolism">
+        <id column="metabolism_index" property="index"/>
+        <result column="metabolism_name" property="metabolismName"/>
+        <result column="Fold_change" property="foldChange"/>
+        <result column="P_value" property="pValue"/>
+        <result column="VIP" property="vip"/>
+        <result column="Sample" property="sample"/>
+    </resultMap>
+
+    <select id="getMetabolismList" resultMap="metabolismMap">
+        select * from fsmm.metabolism;
+    </select>
+
+    <select id="getMetabolismById" resultMap="metabolismMap" parameterType="int">
+        select * from fsmm.Metabolism where metabolism_index = #{id};
+    </select>
+</mapper>
