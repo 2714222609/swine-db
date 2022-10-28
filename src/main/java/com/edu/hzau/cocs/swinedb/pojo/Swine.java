@@ -14,7 +14,11 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Swine {
-    private int id;
-    private String name;
-    private int age;
+    private int index;
+    private String tag;
+    private String colId;
+    private int sex;
+    private double ages;
+    private double weights;
+    private String assayStation;
 }

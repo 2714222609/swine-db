@@ -27,18 +27,4 @@ public class SwineServiceImpl implements SwineService{
         return swineMapper.getSwineById(id);
     }
 
-    @Override
-    public int addSwine(Swine swine) {
-        return swineMapper.addSwine(swine);
-    }
-
-    @Override
-    public int updateSwine(Swine swine) {
-        return swineMapper.updateSwine(swine);
-    }
-
-    @Override
-    public int deleteSwine(int id) {
-        return swineMapper.deleteSwine(id);
-    }
 }

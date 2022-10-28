@@ -19,18 +19,4 @@ public interface SwineService {
      */
     Swine getSwineById(int id);
 
-    /**
-     * 插入一条swine记录
-     */
-    int addSwine(Swine swine);
-
-    /**
-     * 更新一条swine记录
-     */
-    int updateSwine(Swine swine);
-
-    /**
-     * 删除一条swine记录
-     */
-    int deleteSwine(int id);
 }

@@ -3,23 +3,20 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.edu.hzau.cocs.swinedb.mapper.SwineMapper">
-    <select id="getSwineList" resultType="Swine">
-        select * from swine.swine;
+    <resultMap id="swineMap" type="com.edu.hzau.cocs.swinedb.pojo.Swine">
+        <id column="swine_index" property="index"/>
+        <result column="swine_tag" property="tag"/>
+        <result column="col_id" property="colId"/>
+        <result column="sex" property="sex"/>
+        <result column="ages" property="ages"/>
+        <result column="weights" property="weights"/>
+        <result column="assay_station" property="assayStation"/>
+    </resultMap>
+    <select id="getSwineList" resultMap="swineMap">
+        select * from fsmm.swine;
     </select>
 
     <select id="getSwineById" resultType="Swine" parameterType="int">
-        select * from swine.swine where id = #{id};
+        select * from fsmm.swine where swine_index = #{id};
     </select>
-
-    <insert id="addSwine" parameterType="Swine">
-        insert into swine.swine(id,name,age) values(#{id},#{name},#{age});
-    </insert>
-
-    <update id="updateSwine" parameterType="Swine">
-        update swine.swine set name = #{name},age = #{age} where id = #{id};
-    </update>
-
-    <delete id="deleteSwine" parameterType="int">
-        delete from swine.swine where id = #{id};
-    </delete>
 </mapper>
