@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.hzau.cocs.swinedb.mapper.FeedMapper">
+    <resultMap id="feedMap" type="com.edu.hzau.cocs.swinedb.pojo.Feed">
+        <id column="Feed_index" property="index"/>
+        <result column="tag" property="tag"/>
+        <result column="time" property="time"/>
+        <result column="Nurseing_feed_percentage" property="nurseingFeedPercentage"/>
+        <result column="Phase_1_feed_percentage" property="phase1FeedPercentage"/>
+        <result column="Phase_2_feed_percentage" property="phase2FeedPercentage"/>
+        <result column="Phase_3_feed_percentage" property="phase3FeedPercentage"/>
+        <result column="day_of_intake" property="dayOfIntake"/>
+    </resultMap>
+
+    <select id="getFeedList" resultMap="feedMap">
+        select * from fsmm.feed;
+    </select>
+
+    <select id="getFeedById" resultMap="feedMap" parameterType="int">
+        select * from fsmm.feed where Feed_index = #{id};
+    </select>
+</mapper>
