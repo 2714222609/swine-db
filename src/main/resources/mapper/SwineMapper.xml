@@ -16,7 +16,7 @@
         select * from fsmm.swine;
     </select>
 
-    <select id="getSwineById" resultType="Swine" parameterType="int">
+    <select id="getSwineById" resultMap="swineMap" parameterType="int">
         select * from fsmm.swine where swine_index = #{id};
     </select>
 </mapper>

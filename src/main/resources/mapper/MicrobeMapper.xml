@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.hzau.cocs.swinedb.mapper.MicrobeMapper">
+    <resultMap id="microbeMap" type="com.edu.hzau.cocs.swinedb.pojo.Microbe">
+        <id column="microbe_id" property="id"/>
+        <result column="taxonomy" property="taxonomy"/>
+        <result column="microbe_Name" property="microbeName"/>
+        <result column="col" property="col"/>
+        <result column="days" property="days"/>
+        <result column="abundance" property="abundance"/>
+        <result column="P_value_dpf_tpf" property="pValueDpfTpf"/>
+        <result column="P_value_age" property="pValueAge"/>
+    </resultMap>
+
+    <select id="getMicrobeList" resultMap="microbeMap">
+        select * from fsmm.microbe;
+    </select>
+
+    <select id="getMicrobeById" resultMap="microbeMap" parameterType="int">
+        select * from fsmm.microbe where microbe_id = #{id};
+    </select>
+</mapper>
